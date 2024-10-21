@@ -53,5 +53,16 @@
       "prettier --write"
     ]
   },
-  "packageManager": "yarn@4.4.1"
+  "packageManager": "yarn@4.4.1",
+  "dependencies": {
+    "@backstage/backend-common": "^0.25.0",
+    "@backstage/catalog-client": "^1.7.1",
+    "@backstage/catalog-model": "^1.7.0",
+    "@backstage/integration": "^1.15.1",
+    "@backstage/plugin-auth-backend": "^0.23.1",
+    "@backstage/plugin-permission-common": "^0.8.1",
+    "@backstage/plugin-scaffolder-backend-module-github": "^0.5.1",
+    "@react-keycloak/web": "^3.4.0",
+    "keycloak-js": "^26.0.1"
+  }
 }
