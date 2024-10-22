@@ -9,7 +9,7 @@
 import { createBackend } from '@backstage/backend-defaults';
 
 const backend = createBackend();
-backend.add(import('@janus-idp/backstage-plugin-keycloak-backend/alpha'));
+
 backend.add(import('@backstage/plugin-app-backend/alpha'));
 backend.add(import('@backstage/plugin-proxy-backend/alpha'));
 backend.add(import('@backstage/plugin-scaffolder-backend/alpha'));
@@ -50,5 +50,8 @@ backend.add(import('@backstage/plugin-search-backend-module-techdocs/alpha'));
 
 // kubernetes
 backend.add(import('@backstage/plugin-kubernetes-backend/alpha'));
+
+
+
 
 backend.start();

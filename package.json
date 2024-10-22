@@ -62,6 +62,7 @@
     "@backstage/plugin-auth-backend": "^0.23.1",
     "@backstage/plugin-permission-common": "^0.8.1",
     "@backstage/plugin-scaffolder-backend-module-github": "^0.5.1",
+    "@internal/backstage-plugin-catalog-backend-module-keycloak": "workspace:^",
     "@react-keycloak/web": "^3.4.0",
     "keycloak-js": "^26.0.1"
   }

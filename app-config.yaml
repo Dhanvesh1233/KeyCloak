@@ -29,13 +29,9 @@ backend:
   # The production database configuration is stored in app-config.production.yaml
   backend:
   database:
-  # Using PostgreSQL
-  client: pg
-  connection:
-    host: 'localhost'
-    port: '5432'
-    user: 'postgres'
-    password: '1234'
+    client: better-sqlite3
+    connection: ':memory:'
+  # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
 
 integrations:
   github:
@@ -68,13 +64,13 @@ techdocs:
     type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
 
 auth:
-  environment: 'development' # or 'production'
+  # see https://backstage.io/docs/auth/ to learn about auth providers
   providers:
-    oidc:
-      development:
-        clientId: 'backstage_ui'
-        clientSecret: 'MhRayfeCBx3GrErmwMi1IWuCmfwLLHfz' # Use environment variable
-        issuer: 'https://dev-auth.voltacabs.com/realms/voltacabs'
+    # See https://backstage.io/docs/auth/guest/provider
+    guest: {}
+    clientId: backstage_ui
+    clientSecret: MhRayfeCBx3GrErmwMi1IWuCmfwLLHfz
+    issuer: https://dev-auth.voltacabs.com/realms/voltacabs
 
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
@@ -84,7 +80,7 @@ catalog:
     keycloakOrg:
       default:
         # Remove the `/auth` if using keycloak 17+
-        baseUrl: https://dev-auth.voltacabs.com/realms/voltacabs
+        baseUrl: https://dev-auth.voltacabs
         loginRealm: voltacabs
         realm: voltacabs
         clientId: backstage_ui
@@ -95,6 +91,7 @@ catalog:
           # supports ISO duration, "human duration" as used in code
           timeout: { minutes: 3 } # Customize this to fit your needs
           initialDelay: { seconds: 15 } # Customize this to fit your needs
+
   import:
     entityFilename: catalog-info.yaml
     pullRequestBranchName: backstage-integration
